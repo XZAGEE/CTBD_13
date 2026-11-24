@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: ctbd-lab13
+  namespace: default
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: ctbd-lab13
+
+  template:
+    metadata:
+      labels:
+        app: ctbd-lab13
+
+    spec:
+      containers:
+        - name: flask-app
+          image: YURII/ctbd-lab13:v1
+          ports:
+            - containerPort: 8080
